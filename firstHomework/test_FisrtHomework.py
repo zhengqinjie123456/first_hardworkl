@@ -11,6 +11,7 @@ def readYaml(path):
 
 
 datas: dict = readYaml('./YamlDir/YamlData.yaml')
+print(datas)
 
 
 
@@ -22,17 +23,20 @@ class Test_calculate():
     def teardown(self):
         print("结束计算")
 
-    @pytest.mark.parametrize("firstNum,secNum,result", datas["add"])
+    @pytest.mark.parametrize("firstNum,secNum,result", datas["add"],ids=datas["ids"])
     def test_add(self, firstNum, secNum, result):
-        Sum = firstNum + secNum
-        NewSum = float(Decimal(Sum).quantize(Decimal("0.0001")))
-        assert float(result) == NewSum
 
-    @pytest.mark.parametrize("firstNum,secNum,result", datas["div"])
+        assert c
+
+    @pytest.mark.parametrize("firstNum,secNum,result", datas["div"],ids=datas["ids"])
     def test_div(self, firstNum, secNum, result):
-        try:
-            Div = firstNum / secNum
-        except Exception as e:
-            print(f"数值类型或者值有误：{e}")
-        NewDiv = float(Decimal(Div).quantize(Decimal("0.0001")))
-        assert float(result) == NewDiv
+        if secNum!=0:
+            assert Decimal(str(result)) == Decimal(str(firstNum)) / Decimal(str(secNum))
+        else:
+            try:
+                Div = firstNum / secNum
+            except Exception as e:
+                print(f"数值类型或者值有误：{e}")
+            finally:
+                assert True
+
