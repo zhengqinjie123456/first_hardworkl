@@ -1,14 +1,18 @@
 #有“-”就表示列表，没有就表示字典或者字符串，但要注意同级的格式要一致
 fisrt_dict:
-  fisrt_dict:
-    - fisrt_list
+  int:
+    datas:
+      [1,22,3]
+      [3,4,5]
+#  fisrt_dict: [1,2,2]
 
-sec_dict:
-  - sec_dict:
-      - sec_list
 
-third_dict:
-  - third_dict:
-      third_list
-
+#sec_dict:
+#  - sec_dict:
+#      - sec_list
+#
+#third_dict:
+#  - third_dict:
+#      third_list
+#
 
