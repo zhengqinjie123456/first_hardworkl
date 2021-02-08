@@ -5,7 +5,7 @@ from decimal import Decimal
 
 def readYaml(path):
     # './YamlDir/YamlData.yaml'
-    with open(path) as f:
+    with open(path,encoding='utf-8') as f:
         result = yaml.safe_load(f)
     return result
 

@@ -1,0 +1,76 @@
+{
+  "uid" : "5df41d016f564f0f",
+  "name" : "test_search1[2]",
+  "fullName" : "test_allure.Test_search#test_search1",
+  "historyId" : "efa8f4da3c545c7b7d96c5dbed6aced2",
+  "time" : {
+    "start" : 1612752648560,
+    "stop" : 1612752648561,
+    "duration" : 1
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "newFailed" : false,
+  "beforeStages" : [ ],
+  "testStage" : {
+    "status" : "passed",
+    "steps" : [ ],
+    "attachments" : [ {
+      "uid" : "56a0bb8644422903",
+      "name" : "stdout",
+      "source" : "56a0bb8644422903.txt",
+      "type" : "text/plain",
+      "size" : 14
+    } ],
+    "parameters" : [ ],
+    "hasContent" : true,
+    "stepsCount" : 0,
+    "shouldDisplayMessage" : false,
+    "attachmentsCount" : 1
+  },
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "feature",
+    "value" : "搜索模块"
+  }, {
+    "name" : "story",
+    "value" : "功能3"
+  }, {
+    "name" : "suite",
+    "value" : "test_allure"
+  }, {
+    "name" : "subSuite",
+    "value" : "Test_search"
+  }, {
+    "name" : "host",
+    "value" : "LAPTOP-UP7HT76D"
+  }, {
+    "name" : "thread",
+    "value" : "29048-MainThread"
+  }, {
+    "name" : "framework",
+    "value" : "pytest"
+  }, {
+    "name" : "language",
+    "value" : "cpython3"
+  }, {
+    "name" : "package",
+    "value" : "test_allure"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ {
+    "name" : "a",
+    "value" : "2"
+  } ],
+  "links" : [ ],
+  "hidden" : true,
+  "retry" : true,
+  "extra" : {
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5df41d016f564f0f.json",
+  "parameterValues" : [ "2" ]
+}

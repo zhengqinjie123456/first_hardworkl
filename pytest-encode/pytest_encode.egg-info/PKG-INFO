@@ -1,0 +1,11 @@
+Metadata-Version: 1.0
+Name: pytest-encode
+Version: 1.0
+Summary: set your encoding
+Home-page: https://github.com/pytest-dev/pytest-forked
+Author: AJ
+Author-email: 850259582@qq.com
+License: UNKNOWN
+Description: UNKNOWN
+Platform: linux
+Platform: osx
