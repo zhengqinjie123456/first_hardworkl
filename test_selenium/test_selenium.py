@@ -2,22 +2,53 @@ from datetime import time
 from time import sleep
 from selenium import webdriver
 import pytest
-from selenium.webdriver import ActionChains
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.wait import WebDriverWait
-
-
+from selenium.webdriver import ActionChains, TouchActions
+from selenium.webdriver.common.keys import Keys
 class Test_class():
     @pytest.fixture()
     def fixture_test(self):
-        self.driver=webdriver.Chrome()
+        option=webdriver.ChromeOptions()
+        option.add_experimental_option('w3c',False)
+        self.driver=webdriver.Chrome(options=option)
         self.action=ActionChains(self.driver)
+        self.touch_action=TouchActions(self.driver)
         self.driver.maximize_window()
         self.driver.implicitly_wait(5)
         yield
         self.driver.quit()
 
+    def test_touchAction(self,fixture_test):
+        self.driver.get('https://www.baidu.com/')
+        a=self.driver.find_element_by_id('kw')
+        a.send_keys('abcd')
+        self.action.send_keys(Keys.ENTER).perform()
+        self.touch_action.scroll_from_element(a,0,10000)
+        self.touch_action.perform()
+
+    def test_keyword(self,fixture_test):
+        self.driver.get('http://sahitest.com/demo/label.htm')
+        self.driver.find_element_by_xpath('//input[@type="textbox"]').click()
+        self.action.send_keys("好样儿的")
+        self.action.send_keys(Keys.SPACE).pause(1)
+        self.action.send_keys('abc').pause(1)
+        self.action.key_down(Keys.CONTROL).send_keys('a').pause(1)
+        self.action.send_keys(Keys.BACKSPACE).pause(1)
+        self.action.perform()
+        sleep(3)
+
+
+    def test_dragdrop(self,fixture_test):
+        self.driver.get('http://sahitest.com/demo/dragDropMooTools.htm')
+        darg_ele=self.driver.find_element_by_xpath('//*[@id="dragger"]')
+        drop_ele=self.driver.find_element_by_xpath('//*[@class="item"][2]')
+        #逻辑就是按住不放，移动到另一个元素，再松开鼠标
+        # self.action.drag_and_drop(darg_ele,drop_ele).perform()
+        # self.action.click_and_hold(darg_ele).release(drop_ele).perform()
+        self.action.click_and_hold(darg_ele).move_to_element(drop_ele).release().perform()
+        sleep(3)
 
 
 
